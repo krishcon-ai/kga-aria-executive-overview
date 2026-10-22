@@ -1,0 +1,652 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>KGA ARIA — Executive Overview</title>
+<meta name="description" content="KGA ARIA by KGAgentic: enterprise agentic AI for P&amp;C insurance across Policy, Billing and Claims, with KGA ARIA Assure outcome assurance. Available on Microsoft Azure and Google Cloud Marketplaces. Built in the Greater Toronto Area, Canada.">
+<meta name="robots" content="index, follow">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;600;700;800;900&family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+<style>
+:root{
+  --bg:#0f1117; --bg2:#13161f; --bg3:#171b26;
+  --card:rgba(255,255,255,.04); --border:rgba(255,255,255,.09);
+  --text:#f1f5f9; --text-mid:#94a3b8; --text-dim:#64748b;
+  --amber:#c9a84c; --amber-lt:#f5d470; --amber-dim:rgba(201,168,76,.14);
+  --green-lt:#6ee7b7; --green-dim:rgba(16,185,129,.14);
+  --violet:#a78bfa; --violet-dim:rgba(124,58,237,.16);
+  --radius:12px;
+  --mono:'Montserrat',system-ui,sans-serif;
+  --body:'Inter',system-ui,-apple-system,Segoe UI,Roboto,sans-serif;
+}
+*,*::before,*::after{box-sizing:border-box;margin:0;padding:0}
+html{scroll-behavior:smooth;scroll-padding-top:92px}
+body{font-family:var(--body);background:var(--bg);color:var(--text);line-height:1.6;-webkit-font-smoothing:antialiased}
+a{color:inherit}
+.ic{width:1em;height:1em;flex:none;fill:none;stroke:currentColor;stroke-width:2;stroke-linecap:round;stroke-linejoin:round}
+.ic-fill{fill:currentColor;stroke:none}
+
+/* ── TOPBAR ── */
+.topbar{position:sticky;top:0;z-index:50;height:60px;display:flex;align-items:center;justify-content:space-between;
+  padding:0 clamp(16px,3vw,48px);background:rgba(15,17,23,.92);backdrop-filter:blur(12px);border-bottom:1px solid var(--border)}
+.brand{display:flex;align-items:center;gap:11px;text-decoration:none}
+.brand-mark{width:32px;height:32px;display:grid;place-items:center;border-radius:7px;color:#0a1628;
+  background:linear-gradient(145deg,var(--amber-lt),var(--amber));font-size:15px}
+.brand .bt{display:grid;line-height:1.1}
+.brand strong{font-family:var(--mono);font-size:13px;font-weight:800;letter-spacing:.06em;color:var(--text)}
+.brand small{margin-top:3px;color:var(--text-dim);font-size:10px;letter-spacing:.04em}
+.topbar-actions{display:flex;align-items:center;gap:22px}
+.guide-label{display:flex;align-items:center;gap:7px;color:var(--text-dim);font-size:12px}
+.guide-label .ic{font-size:15px}
+.support-link{display:flex;align-items:center;gap:7px;color:var(--amber);font-family:var(--mono);font-size:11px;font-weight:700;
+  letter-spacing:.04em;text-transform:uppercase;text-decoration:none}
+.support-link .ic{font-size:15px}
+.support-link:hover{color:var(--amber-lt)}
+
+/* ── LAYOUT ── */
+.page-grid{max-width:none;margin:0;display:grid;grid-template-columns:220px minmax(0,1fr);gap:clamp(28px,3vw,52px);padding:36px clamp(16px,3vw,48px) 96px}
+.side-nav{position:sticky;top:96px;align-self:start}
+.side-nav>p{margin-bottom:14px;color:var(--text-dim);font-family:var(--mono);font-size:10px;font-weight:700;letter-spacing:.12em;text-transform:uppercase}
+.side-nav nav{display:grid;border-left:1px solid var(--border)}
+.side-nav nav a{display:grid;grid-template-columns:24px 1fr;gap:8px;margin-left:-1px;padding:8px 8px 8px 16px;
+  border-left:2px solid transparent;color:var(--text-mid);font-size:12.5px;text-decoration:none;transition:.15s}
+.side-nav nav a:hover{border-left-color:var(--amber);color:var(--text);background:var(--card)}
+.side-nav nav a span{color:var(--text-dim);font-family:var(--mono);font-size:10px;font-weight:700}
+.side-nav nav a.hl{color:var(--violet)}
+.nav-help{display:flex;gap:11px;margin-top:26px;padding:15px;border:1px solid var(--border);border-radius:10px;background:var(--card)}
+.nav-help .ic{font-size:18px;color:var(--amber)}
+.nav-help div{display:grid;gap:4px}
+.nav-help strong{font-family:var(--mono);font-size:11px;font-weight:700;letter-spacing:.03em}
+.nav-help a{font-size:11px;color:var(--amber);text-decoration:none}
+.nav-help a:hover{color:var(--amber-lt)}
+main{min-width:0}
+
+/* ── SHARED SECTION HEADING ── */
+.eyebrow{display:inline-block;font-family:var(--mono);font-size:9px;font-weight:700;letter-spacing:.24em;text-transform:uppercase;color:var(--amber);margin-bottom:13px}
+.eyebrow.v{color:var(--violet)}
+.section-heading{max-width:960px;margin-bottom:34px}
+.section-heading h2{font-family:var(--mono);font-size:clamp(24px,3vw,36px);font-weight:800;line-height:1.15;color:var(--text);letter-spacing:-.01em}
+.section-intro{margin-top:15px;color:var(--text-mid);font-size:15.5px;line-height:1.72}
+
+/* ── HERO ── */
+.hero{display:grid;grid-template-columns:minmax(0,1.35fr) minmax(300px,.65fr);align-items:center;gap:54px;
+  padding:66px 56px;border-radius:16px;overflow:hidden;
+  background:radial-gradient(ellipse 70% 60% at 78% -5%,rgba(124,58,237,.14),transparent 60%),
+             radial-gradient(ellipse 60% 70% at 10% 110%,rgba(201,168,76,.10),transparent 55%),
+             linear-gradient(140deg,#111623,#0c1220 70%,#131a2b);
+  border:1px solid var(--border)}
+.hero h1{font-family:var(--mono);font-size:clamp(34px,4.6vw,54px);font-weight:800;line-height:1.05;letter-spacing:-.02em;margin-bottom:16px}
+.hero-lede{max-width:820px;color:var(--text-mid);font-size:16px;line-height:1.7}
+.hero-actions{display:flex;flex-wrap:wrap;gap:12px;margin-top:30px}
+.button{min-height:44px;display:inline-flex;align-items:center;justify-content:center;gap:9px;padding:0 20px;border-radius:8px;
+  font-family:var(--mono);font-size:11.5px;font-weight:700;letter-spacing:.05em;text-transform:uppercase;text-decoration:none;transition:.2s;cursor:pointer}
+.button .ic{font-size:16px}
+.button.primary{background:var(--amber);color:#0a1628}
+.button.primary:hover{background:var(--amber-lt)}
+.button.secondary{border:1px solid rgba(255,255,255,.2);color:var(--text)}
+.button.secondary:hover{border-color:var(--amber);color:var(--amber)}
+.button.light{background:var(--text);color:#0a1628}
+.button.light:hover{background:#fff}
+.hero-panel{padding-left:30px;border-left:1px solid var(--border)}
+.panel-kicker{font-family:var(--mono);font-size:9px;font-weight:700;letter-spacing:.16em;text-transform:uppercase;color:var(--text-dim);margin-bottom:16px}
+.path-row{display:grid;grid-template-columns:30px 1fr 18px;align-items:center;gap:12px;padding:13px 0;border-bottom:1px solid var(--border)}
+.path-row:last-child{border-bottom:0}
+.path-row>span{font-family:var(--mono);font-size:11px;font-weight:700;color:var(--amber)}
+.path-row div{display:grid;gap:4px}
+.path-row strong{font-size:13.5px}
+.path-row small{color:var(--text-dim);font-size:11px}
+.path-row>.ic{font-size:15px;color:var(--green-lt)}
+.path-row.v>span,.path-row.v strong{color:var(--violet)}
+.path-row.v>.ic{color:var(--violet)}
+
+/* ── PILLARS ── */
+.pillars{display:grid;grid-template-columns:repeat(4,1fr);gap:12px;margin-top:22px}
+.pillar{padding:18px;border:1px solid var(--border);border-radius:10px;background:var(--bg2)}
+.pillar strong{display:block;font-family:var(--mono);font-size:12.5px;font-weight:700;margin-bottom:6px}
+.pillar p{color:var(--text-mid);font-size:12px;line-height:1.55}
+
+/* ── CONTENT SECTIONS ── */
+.content-section{padding:84px 6px 0}
+.callout{display:flex;gap:15px;margin-bottom:22px;padding:20px 22px;border-left:3px solid var(--amber);border-radius:0 8px 8px 0;background:var(--amber-dim)}
+.callout .ic{font-size:22px;color:var(--amber);margin-top:2px}
+.callout strong{font-family:var(--mono);font-size:13px;font-weight:700}
+.callout p{margin-top:6px;color:var(--text-mid);font-size:13px;line-height:1.6}
+.check-grid,.feature-grid{display:grid;grid-template-columns:1fr 1fr;gap:12px}
+.check-item{display:flex;gap:12px;padding:15px 16px;border:1px solid var(--border);border-radius:9px;background:var(--bg2)}
+.check-item span{flex:none;width:21px;height:21px;display:grid;place-items:center;border-radius:50%;color:var(--green-lt);background:var(--green-dim)}
+.check-item span .ic{font-size:12px}
+.check-item p{font-size:13px;line-height:1.5;color:var(--text-mid)}
+.note{display:grid;grid-template-columns:120px 1fr;gap:18px;margin-top:16px;padding:17px 20px;border:1px solid rgba(201,168,76,.3);border-radius:8px;background:rgba(201,168,76,.06)}
+.note strong{font-family:var(--mono);font-size:11px;font-weight:700;letter-spacing:.03em;color:var(--amber-lt)}
+.note p{color:var(--text-mid);font-size:12px;line-height:1.6}
+
+/* portfolio */
+.portfolio-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:12px}
+.product-card{position:relative;padding:24px;border:1px solid var(--border);border-radius:10px;background:var(--bg2)}
+.product-card .seq{position:absolute;top:22px;right:22px;font-family:var(--mono);font-size:10px;font-weight:800;color:var(--text-dim);letter-spacing:.1em}
+.product-card .tag{display:inline-block;margin-bottom:14px;padding:4px 9px;border-radius:20px;font-family:var(--mono);font-size:8.5px;font-weight:800;
+  letter-spacing:.1em;text-transform:uppercase;color:var(--amber-lt);background:var(--amber-dim)}
+.product-card h3{font-family:var(--mono);font-size:17px;font-weight:800;margin-bottom:8px}
+.product-card p{color:var(--text-mid);font-size:13px;line-height:1.62}
+.product-card ul{list-style:none;margin-top:14px;display:grid;gap:7px}
+.product-card li{display:flex;gap:9px;color:var(--text-mid);font-size:12px;line-height:1.45}
+.product-card li .ic{font-size:13px;color:var(--green-lt);margin-top:2px}
+.portfolio-row2{display:grid;grid-template-columns:1fr 2fr;gap:12px;margin-top:12px}
+.product-card.assure{border-color:rgba(167,139,250,.45);
+  background:radial-gradient(ellipse 80% 90% at 100% 0%,rgba(124,58,237,.18),transparent 60%),var(--bg2)}
+.product-card.assure .tag{color:var(--violet);background:var(--violet-dim)}
+.product-card.assure h3{color:#fff}
+.product-card.assure li .ic{color:var(--violet)}
+.product-card.assure ul{grid-template-columns:1fr 1fr}
+
+/* assure spotlight */
+.assure-section{margin-top:84px;padding:56px 40px;border-radius:16px;border:1px solid rgba(167,139,250,.35);
+  background:radial-gradient(ellipse 70% 70% at 90% -10%,rgba(124,58,237,.22),transparent 60%),
+             radial-gradient(ellipse 60% 60% at 0% 110%,rgba(201,168,76,.08),transparent 55%),
+             linear-gradient(140deg,#121628,#0c1120 70%,#141a2e)}
+.assure-section.content-section{padding-top:56px}
+.assure-flow{display:grid;grid-template-columns:repeat(4,1fr);gap:0;margin:6px 0 30px;border:1px solid var(--border);border-radius:12px;overflow:hidden}
+.flow-step{padding:20px;background:rgba(255,255,255,.025);border-right:1px solid var(--border)}
+.flow-step:last-child{border-right:0;background:var(--violet-dim)}
+.flow-step span{font-family:var(--mono);font-size:9px;font-weight:800;letter-spacing:.16em;text-transform:uppercase;color:var(--text-dim)}
+.flow-step:last-child span{color:var(--violet)}
+.flow-step strong{display:block;margin:6px 0 4px;font-family:var(--mono);font-size:13.5px;font-weight:700}
+.flow-step p{color:var(--text-mid);font-size:11.5px;line-height:1.5}
+.assure-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:12px}
+.assure-card{padding:22px;border:1px solid var(--border);border-radius:10px;background:rgba(15,17,23,.55)}
+.assure-card .feature-icon{color:var(--violet);background:var(--violet-dim)}
+.assure-card h3{font-family:var(--mono);font-size:14.5px;font-weight:700;margin-bottom:7px}
+.assure-card p{color:var(--text-mid);font-size:12.5px;line-height:1.6}
+.family-row{display:grid;grid-template-columns:repeat(4,1fr);gap:12px;margin-top:26px}
+.family{padding:16px 18px;border-radius:10px;border:1px solid rgba(167,139,250,.3);background:rgba(124,58,237,.08)}
+.family span{font-family:var(--mono);font-size:9px;font-weight:800;letter-spacing:.14em;color:var(--violet)}
+.family strong{display:block;margin:5px 0 3px;font-family:var(--mono);font-size:13px;font-weight:700}
+.family p{color:var(--text-mid);font-size:11.5px;line-height:1.5}
+.fit-strip{display:grid;grid-template-columns:repeat(3,1fr);gap:12px;margin-top:26px}
+.fit{display:flex;gap:12px;padding:16px;border-top:2px solid var(--violet);background:rgba(255,255,255,.02);border-radius:0 0 8px 8px}
+.fit .ic{font-size:18px;color:var(--violet);margin-top:1px}
+.fit strong{display:block;font-family:var(--mono);font-size:12px;font-weight:700;margin-bottom:4px}
+.fit p{color:var(--text-mid);font-size:11.5px;line-height:1.5}
+
+/* steps */
+.steps{list-style:none}
+.steps li{display:grid;grid-template-columns:40px 1fr;gap:20px;padding:22px 0;border-top:1px solid var(--border)}
+.steps li:last-child{border-bottom:1px solid var(--border)}
+.steps li>span{width:34px;height:34px;display:grid;place-items:center;border-radius:50%;color:var(--amber);
+  border:1px solid rgba(201,168,76,.35);background:var(--amber-dim);font-family:var(--mono);font-size:12px;font-weight:800}
+.steps h3{font-family:var(--mono);font-size:15px;font-weight:700;color:var(--text);margin-bottom:6px}
+.steps p{color:var(--text-mid);font-size:13px;line-height:1.62}
+
+/* feature cards */
+.feature-grid.three{grid-template-columns:repeat(3,1fr)}
+.feature-card{padding:24px;border:1px solid var(--border);border-radius:10px;background:var(--bg2)}
+.feature-card.v{border-color:rgba(167,139,250,.4)}
+.feature-icon{width:42px;height:42px;display:grid;place-items:center;margin-bottom:18px;border-radius:9px;color:var(--amber);background:var(--amber-dim)}
+.feature-card.v .feature-icon{color:var(--violet);background:var(--violet-dim)}
+.feature-icon .ic{font-size:20px}
+.feature-card h3{font-family:var(--mono);font-size:15px;font-weight:700;margin-bottom:8px}
+.feature-card p{color:var(--text-mid);font-size:13px;line-height:1.62}
+
+/* workflow */
+.workflow-section{margin-top:84px;padding:56px 34px;border-radius:14px;background:var(--bg2);border:1px solid var(--border)}
+.workflow-section.content-section{padding-top:56px}
+.workflow-layout{display:grid;grid-template-columns:1.1fr .9fr;gap:44px;margin-top:8px}
+.workflow-step{display:grid;grid-template-columns:32px 1fr;gap:14px;padding:16px 0;border-top:1px solid var(--border)}
+.workflow-step:first-child{border-top:0}
+.workflow-step>span{width:24px;height:24px;display:grid;place-items:center;border-radius:5px;color:#0a1628;background:var(--amber);font-family:var(--mono);font-size:11px;font-weight:800}
+.workflow-step.v>span{background:var(--violet)}
+.workflow-step h3{font-family:var(--mono);font-size:13.5px;font-weight:700;margin-bottom:5px}
+.workflow-step p{color:var(--text-mid);font-size:12px;line-height:1.55}
+.expected-result{align-self:start;padding:28px;border-radius:12px;background:var(--bg3);border:1px solid var(--border)}
+.expected-result h3{font-family:var(--mono);font-size:20px;font-weight:800;margin-top:4px}
+.expected-result>p{margin:14px 0 20px;color:var(--text-mid);font-size:12.5px;line-height:1.65}
+.expected-result .er-row{display:flex;gap:10px;align-items:center;padding:11px 0;border-top:1px solid var(--border);color:var(--text-mid);font-size:11.5px}
+.expected-result .er-row .ic{font-size:17px;color:var(--amber)}
+.expected-result .er-row.v .ic{color:var(--violet)}
+
+/* readiness table */
+.readiness-table{border-top:2px solid var(--amber)}
+.readiness-row{display:grid;grid-template-columns:170px 1fr 40px;gap:20px;align-items:center;padding:17px 6px;border-bottom:1px solid var(--border)}
+.readiness-row>div{display:flex;align-items:center;gap:10px;font-family:var(--mono);font-size:12.5px;font-weight:700;color:var(--text)}
+.status-dot{width:8px;height:8px;border-radius:50%;background:var(--amber);flex:none}
+.readiness-row.v .status-dot{background:var(--violet)}
+.readiness-row p{color:var(--text-mid);font-size:12px}
+.status-label{width:28px;height:28px;display:grid;place-items:center;font-size:14px;border-radius:50%;color:var(--green-lt);background:var(--green-dim);text-align:center;
+  font-family:var(--mono);font-size:8.5px;font-weight:800;letter-spacing:.06em;text-transform:uppercase}
+
+/* launch card */
+.launch-card{display:grid;grid-template-columns:84px 1fr;overflow:hidden;border:1px solid var(--border);border-radius:12px;background:var(--bg2)}
+.launch-icon{display:grid;place-items:center;color:#0a1628;background:linear-gradient(160deg,var(--amber-lt),var(--amber))}
+.launch-icon .ic{font-size:26px}
+.launch-items{padding:14px 26px}
+.launch-items label{display:flex;gap:12px;align-items:center;padding:11px 0;border-bottom:1px solid var(--border)}
+.launch-items label:last-child{border-bottom:0}
+.launch-items label span{width:17px;height:17px;flex:none;border:1.5px solid var(--text-dim);border-radius:4px}
+.launch-items label.v span{border-color:var(--violet)}
+.launch-items p{font-size:12.5px;color:var(--text-mid)}
+
+/* support */
+.support-card{display:flex;align-items:center;justify-content:space-between;gap:36px;padding:34px;border-radius:12px;
+  background:linear-gradient(110deg,#121826,#0c1322);border:1px solid var(--border)}
+.support-card>div{max-width:640px}
+.support-card .feature-icon{margin-bottom:16px;background:var(--amber-dim)}
+.support-card h3{font-family:var(--mono);font-size:20px;font-weight:800;margin-bottom:8px}
+.support-card p{color:var(--text-mid);font-size:12.5px;line-height:1.65}
+
+/* footer */
+footer{border-top:1px solid var(--border);background:#0a0d14;padding:30px clamp(16px,3vw,48px)}
+.footer-inner{max-width:none;margin:0;display:grid;grid-template-columns:1fr auto auto;align-items:center;gap:40px}
+footer .brand strong{color:var(--text)}
+footer p{color:var(--text-dim);font-size:11px;line-height:1.7}
+
+@media(max-width:1100px){
+  .pillars,.family-row{grid-template-columns:1fr 1fr}
+  .assure-grid,.feature-grid.three{grid-template-columns:1fr 1fr}
+  .assure-flow{grid-template-columns:1fr 1fr}
+  .flow-step:nth-child(2){border-right:0}
+  .flow-step:nth-child(-n+2){border-bottom:1px solid var(--border)}
+}
+@media(max-width:1000px){
+  .page-grid{grid-template-columns:1fr}
+  .side-nav{display:none}
+  .hero{grid-template-columns:1fr;padding:46px 30px}
+  .hero-panel{border-left:0;border-top:1px solid var(--border);padding:26px 0 0}
+  .workflow-layout{grid-template-columns:1fr}
+  .portfolio-grid{grid-template-columns:1fr}
+  .portfolio-row2{grid-template-columns:1fr}
+  .fit-strip{grid-template-columns:1fr}
+  .footer-inner{grid-template-columns:1fr;gap:18px}
+}
+@media(max-width:640px){
+  .topbar{padding:0 16px}
+  .guide-label{display:none}
+  .page-grid{padding:22px 16px 64px}
+  .hero h1{font-size:32px}
+  .pillars,.family-row,.assure-grid,.feature-grid.three,.check-grid,.feature-grid,.assure-flow{grid-template-columns:1fr}
+  .product-card.assure ul{grid-template-columns:1fr}
+  .flow-step{border-right:0;border-bottom:1px solid var(--border)}
+  .flow-step:last-child{border-bottom:0}
+  .assure-section{padding:40px 20px}
+  .note{grid-template-columns:1fr;gap:8px}
+  .workflow-section{margin-top:52px;padding:40px 20px}
+  .readiness-row{grid-template-columns:1fr 40px}
+  .readiness-row p{grid-column:1/3}
+  .launch-card{grid-template-columns:1fr}
+  .launch-icon{min-height:64px}
+  .support-card{flex-direction:column;align-items:flex-start}
+  .support-card .button{width:100%}
+}
+@media print{
+  :root{--bg:#fff;--bg2:#fff;--bg3:#fff;--text:#111;--text-mid:#333;--text-dim:#555;--border:#ccc}
+  .topbar,.side-nav,.hero-actions,.support-card .button{display:none}
+  body{background:#fff;color:#111}
+  .page-grid{display:block;padding:0}
+  .hero,.assure-section{border:1px solid #bbb;background:#fff}
+  .content-section{break-inside:avoid;padding-top:34px}
+}
+
+/* exec additions */
+.reg-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:12px;margin-bottom:12px}
+.reg{padding:22px;border:1px solid var(--border);border-radius:10px;background:var(--bg2)}
+.reg>span{font-family:var(--mono);font-size:9px;font-weight:800;letter-spacing:.16em;text-transform:uppercase;color:var(--amber)}
+.reg ul{list-style:none;margin-top:12px;display:grid;gap:9px}
+.reg li{display:flex;gap:9px;font-size:12.5px;line-height:1.45;color:var(--text-mid)}
+.reg li .ic{font-size:13px;color:var(--green-lt);margin-top:2px}
+.reg li b{color:var(--text);font-weight:600}
+.avail-grid{display:grid;grid-template-columns:1fr 1fr;gap:12px;margin-top:14px}
+.avail-grid .avail{margin-top:0}
+@media(max-width:1000px){.reg-grid{grid-template-columns:1fr}.avail-grid{grid-template-columns:1fr}}
+.exec-grid{display:grid;grid-template-columns:repeat(5,1fr);gap:12px}
+.exec{padding:20px;border:1px solid var(--border);border-top:2px solid var(--amber);border-radius:0 0 10px 10px;background:var(--bg2)}
+.exec span{font-family:var(--mono);font-size:9px;font-weight:800;letter-spacing:.16em;text-transform:uppercase;color:var(--amber)}
+.exec strong{display:block;margin:7px 0 6px;font-family:var(--mono);font-size:13.5px;font-weight:700}
+.exec p{color:var(--text-mid);font-size:12px;line-height:1.55}
+.avail{display:flex;align-items:center;gap:16px;margin-top:14px;padding:20px 22px;border:1px solid rgba(201,168,76,.35);border-radius:10px;background:var(--amber-dim)}
+.avail .ic{font-size:22px;color:var(--amber)}
+.avail strong{font-family:var(--mono);font-size:14px;font-weight:700}
+.avail p{color:var(--text-mid);font-size:12.5px}
+.engage{display:grid;grid-template-columns:repeat(4,1fr);border:1px solid var(--border);border-radius:12px;overflow:hidden}
+.engage div{padding:22px;border-right:1px solid var(--border);background:var(--bg2)}
+.engage div:last-child{border-right:0}
+.engage span{font-family:var(--mono);font-size:9px;font-weight:800;letter-spacing:.16em;color:var(--amber)}
+.engage strong{display:block;margin:7px 0 5px;font-family:var(--mono);font-size:14px;font-weight:700}
+.engage p{color:var(--text-mid);font-size:12px;line-height:1.55}
+.engage div.v{background:var(--violet-dim)}.engage div.v span{color:var(--violet)}
+@media(max-width:1100px){.exec-grid{grid-template-columns:1fr 1fr}.engage{grid-template-columns:1fr 1fr}.engage div:nth-child(2){border-right:0}.engage div:nth-child(-n+2){border-bottom:1px solid var(--border)}}
+@media(max-width:640px){.exec-grid,.engage{grid-template-columns:1fr}.engage div{border-right:0;border-bottom:1px solid var(--border)}.avail{flex-direction:column;align-items:flex-start}}
+.tech-grid{display:grid;grid-template-columns:repeat(4,1fr);gap:12px}
+.tech{padding:20px;border:1px solid var(--border);border-radius:10px;background:var(--bg2)}
+.tech .feature-icon{width:36px;height:36px;margin-bottom:14px}
+.tech .feature-icon .ic{font-size:17px}
+.tech strong{display:block;font-family:var(--mono);font-size:13px;font-weight:700;margin-bottom:5px}
+.tech p{color:var(--text-mid);font-size:12px;line-height:1.55}
+.partner-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:12px}
+.partner{display:flex;align-items:center;gap:14px;padding:20px 22px;border:1px solid var(--border);border-radius:10px;background:var(--bg2)}
+.partner .pm{width:38px;height:38px;flex:none;display:grid;place-items:center;border-radius:9px;color:var(--amber);background:var(--amber-dim);font-family:var(--mono);font-weight:800;font-size:12px}
+.partner strong{display:block;font-family:var(--mono);font-size:13px;font-weight:700}
+.partner small{color:var(--text-dim);font-size:11px}
+.loc{display:inline-flex;align-items:center;gap:8px;margin-top:22px;color:var(--text-mid);font-size:12.5px}
+.loc .ic{color:var(--amber);font-size:15px}
+.cta{display:flex;align-items:center;justify-content:space-between;gap:36px;padding:40px;border-radius:14px;
+  background:radial-gradient(ellipse 60% 90% at 100% 0%,rgba(124,58,237,.18),transparent 60%),linear-gradient(110deg,#121826,#0c1322);border:1px solid var(--border)}
+.cta h3{font-family:var(--mono);font-size:24px;font-weight:800;margin-bottom:8px}
+.cta p{color:var(--text-mid);font-size:13.5px;line-height:1.65;max-width:620px}
+@media(max-width:1100px){.tech-grid{grid-template-columns:1fr 1fr}.partner-grid{grid-template-columns:1fr 1fr}}
+@media(max-width:640px){.tech-grid,.partner-grid{grid-template-columns:1fr}.cta{flex-direction:column;align-items:flex-start;padding:28px 22px}.cta .button{width:100%}}
+</style>
+</head>
+<body>
+
+<svg width="0" height="0" style="position:absolute" aria-hidden="true" focusable="false"><defs>
+<symbol id="i-spark" viewBox="0 0 24 24"><path class="ic-fill" d="M12 2l2.3 6.8L21 11l-6.7 2.2L12 20l-2.3-6.8L3 11l6.7-2.2z"/></symbol>
+<symbol id="i-arrow" viewBox="0 0 24 24"><path d="M5 12h14M13 5l7 7-7 7"/></symbol>
+<symbol id="i-book" viewBox="0 0 24 24"><path d="M3 5c3.5 0 6 .5 8 2 2-1.5 4.5-2 8-2v14c-3.5 0-6 .5-8 2-2-1.5-4.5-2-8-2z"/><path d="M11 7v14"/></symbol>
+<symbol id="i-help" viewBox="0 0 24 24"><circle cx="12" cy="12" r="9"/><path d="M9.6 9.2a2.5 2.5 0 014.9.8c0 1.7-2.5 2.4-2.5 2.4"/><path d="M12 16.5h.01"/></symbol>
+<symbol id="i-check" viewBox="0 0 24 24"><path d="M4.5 12.5l5 5 10-11"/></symbol>
+<symbol id="i-badge" viewBox="0 0 24 24"><circle cx="12" cy="12" r="9"/><path d="M8.5 12l2.4 2.4 4.6-5"/></symbol>
+<symbol id="i-id" viewBox="0 0 24 24"><path d="M6 11a6 6 0 0112 0"/><path d="M9 12a3 3 0 016 0c0 2-.6 4-1 5.4"/><path d="M12 12v3.5"/><path d="M7.6 17.4c-.5-1.6-.6-3.1-.6-4.4"/></symbol>
+<symbol id="i-network" viewBox="0 0 24 24"><circle cx="6" cy="6" r="2.4"/><circle cx="18" cy="6" r="2.4"/><circle cx="12" cy="18" r="2.4"/><path d="M7.7 7.7L11 16M16.3 7.7L13 16"/></symbol>
+<symbol id="i-shield" viewBox="0 0 24 24"><path d="M12 3l7 3v5c0 5-3 8-7 10-4-2-7-5-7-10V6z"/><path d="M9 12l2 2 4-4.5"/></symbol>
+<symbol id="i-layers" viewBox="0 0 24 24"><path d="M12 3l9 5-9 5-9-5z"/><path d="M3 13l9 5 9-5"/><path d="M3 17l9 5 9-5"/></symbol>
+<symbol id="i-filecheck" viewBox="0 0 24 24"><path d="M7 3h7l5 5v13H7z"/><path d="M14 3v5h5"/><path d="M9.5 14l2 2 4-4"/></symbol>
+<symbol id="i-rocket" viewBox="0 0 24 24"><path d="M13.5 4C16.5 4 20 7.5 20 10.5c-1.6 4-5 6-5 6l-4-4s2-3.4 6-5c0-1.5-1.5-3-3.5-3.5z"/><path d="M9 15l-3 3M6 12l-3 3M8.5 16.5c-1 1-1 4-1 4s3 0 4-1"/></symbol>
+<symbol id="i-headphones" viewBox="0 0 24 24"><path d="M4 15v-3a8 8 0 0116 0v3"/><path d="M4 15a2 2 0 012-2h1v6H6a2 2 0 01-2-2z"/><path d="M20 15a2 2 0 00-2-2h-1v6h1a2 2 0 002-2z"/></symbol>
+<symbol id="i-external" viewBox="0 0 24 24"><path d="M14 4h6v6"/><path d="M20 4l-9 9"/><path d="M18 13v5a2 2 0 01-2 2H6a2 2 0 01-2-2V8a2 2 0 012-2h5"/></symbol>
+<symbol id="i-target" viewBox="0 0 24 24"><circle cx="12" cy="12" r="9"/><circle cx="12" cy="12" r="5"/><circle cx="12" cy="12" r="1.2"/></symbol>
+<symbol id="i-scale" viewBox="0 0 24 24"><path d="M12 3v18M5 21h14"/><path d="M5 7h14"/><path d="M5 7l-3 6a3 3 0 006 0zM19 7l-3 6a3 3 0 006 0z"/></symbol>
+<symbol id="i-bolt" viewBox="0 0 24 24"><path d="M13 2L4 14h7l-1 8 9-12h-7z"/></symbol>
+<symbol id="i-cloud" viewBox="0 0 24 24"><path d="M7 18a5 5 0 01-.6-9.96A6 6 0 0118 9a4.5 4.5 0 01-.5 9z"/></symbol>
+<symbol id="i-pulse" viewBox="0 0 24 24"><path d="M3 12h4l3-7 4 14 3-7h4"/></symbol>
+<symbol id="i-link" viewBox="0 0 24 24"><path d="M10 14a4 4 0 005.7 0l3-3a4 4 0 00-5.7-5.7l-1 1"/><path d="M14 10a4 4 0 00-5.7 0l-3 3a4 4 0 005.7 5.7l1-1"/></symbol>
+<symbol id="i-store" viewBox="0 0 24 24"><path d="M4 9l1.5-5h13L20 9"/><path d="M4 9h16v2a3 3 0 01-5.3 2 3 3 0 01-5.4 0A3 3 0 014 11z"/><path d="M5 13v7h14v-7"/></symbol>
+<symbol id="i-pin" viewBox="0 0 24 24"><path d="M12 21s-7-6.2-7-11.5a7 7 0 0114 0C19 14.8 12 21 12 21z"/><circle cx="12" cy="9.5" r="2.5"/></symbol>
+<symbol id="i-cpu" viewBox="0 0 24 24"><rect x="6" y="6" width="12" height="12" rx="2"/><path d="M9 2v4M15 2v4M9 18v4M15 18v4M2 9h4M2 15h4M18 9h4M18 15h4"/></symbol>
+<symbol id="i-eye" viewBox="0 0 24 24"><path d="M2 12s3.6-7 10-7 10 7 10 7-3.6 7-10 7S2 12 2 12z"/><circle cx="12" cy="12" r="3"/></symbol>
+<symbol id="i-lock" viewBox="0 0 24 24"><rect x="5" y="11" width="14" height="10" rx="2"/><path d="M8 11V7a4 4 0 018 0v4"/></symbol>
+</defs></svg>
+
+<header class="topbar">
+  <a class="brand" href="#overview">
+    <span class="brand-mark"><svg class="ic ic-fill" style="width:16px;height:16px"><use href="#i-spark"/></svg></span>
+    <span class="bt"><strong>KGA ARIA</strong><small>by KGAgentic</small></span>
+  </a>
+  <div class="topbar-actions">
+    <span class="guide-label"><svg class="ic"><use href="#i-pin"/></svg> Greater Toronto Area, Canada</span>
+    <a class="support-link" href="mailto:info@krishcons.com?subject=KGA%20ARIA%20Executive%20Briefing">Request a briefing <svg class="ic"><use href="#i-arrow"/></svg></a>
+  </div>
+</header>
+
+<div class="page-grid">
+  <aside class="side-nav">
+    <p>On this page</p>
+    <nav>
+      <a href="#overview"><span>00</span>Overview</a>
+      <a href="#outcomes"><span>01</span>Executive outcomes</a>
+      <a href="#portfolio"><span>02</span>Platform portfolio</a>
+      <a href="#assure" class="hl"><span>03</span>KGA ARIA Assure</a>
+      <a href="#technology"><span>04</span>Technical capabilities</a>
+      <a href="#trust"><span>05</span>Trust &amp; regulatory readiness</a>
+      <a href="#partners"><span>06</span>Partners &amp; availability</a>
+      <a href="#engage"><span>07</span>Ways to engage</a>
+    </nav>
+    <div class="nav-help">
+      <svg class="ic"><use href="#i-help"/></svg>
+      <div><strong>Talk to KGA</strong><a href="mailto:info@krishcons.com">info@krishcons.com</a></div>
+    </div>
+  </aside>
+
+  <main>
+    <!-- HERO -->
+    <section class="hero" id="overview">
+      <div>
+        <p class="eyebrow">KGA ARIA&trade; &middot; Agentic Runtime Intelligence for Insurance Automation</p>
+        <h1>Enterprise agentic AI for P&amp;C insurance. Assured outcomes.</h1>
+        <p class="hero-lede">KGA ARIA brings governed, multi-agent intelligence to Policy, Billing and Claims operations &mdash; alongside the core systems insurers already run. KGA ARIA Assure independently verifies that every agentic and human decision delivers the right business outcome.</p>
+        <div class="hero-actions">
+          <a class="button primary" href="#assure">Explore ARIA Assure <svg class="ic"><use href="#i-arrow"/></svg></a>
+          <a class="button secondary" href="#contact">Request a briefing</a>
+        </div>
+        <p class="loc"><svg class="ic"><use href="#i-pin"/></svg> Krishcon Guide Agentic Solutions Inc. (KGAgentic) &middot; Greater Toronto Area, Canada</p>
+      </div>
+      <div class="hero-panel">
+        <p class="panel-kicker">The KGA ARIA portfolio</p>
+        <div class="path-row"><span>01</span><div><strong>KGA ARIA Policy</strong><small>Underwriting and policy lifecycle</small></div><svg class="ic"><use href="#i-check"/></svg></div>
+        <div class="path-row"><span>02</span><div><strong>KGA ARIA Billing</strong><small>Billing, collections and servicing</small></div><svg class="ic"><use href="#i-check"/></svg></div>
+        <div class="path-row"><span>03</span><div><strong>KGA ARIA Claims</strong><small>FNOL through settlement</small></div><svg class="ic"><use href="#i-check"/></svg></div>
+        <div class="path-row"><span>04</span><div><strong>KGA ARIA Adopt</strong><small>Governed production adoption</small></div><svg class="ic"><use href="#i-check"/></svg></div>
+        <div class="path-row v"><span>05</span><div><strong>KGA ARIA Assure</strong><small>Independent outcome assurance</small></div><svg class="ic"><use href="#i-shield"/></svg></div>
+      </div>
+    </section>
+
+    <div class="pillars">
+      <div class="pillar"><strong>Improve the core you have</strong><p>Automate and orchestrate across Policy, Billing and Claims without replacing the core platform.</p></div>
+      <div class="pillar"><strong>Turn context into action</strong><p>Contextual intelligence and decision support from existing data and systems.</p></div>
+      <div class="pillar"><strong>Insurance-grade control</strong><p>Human authority, configurable limits, full provenance and auditability.</p></div>
+      <div class="pillar"><strong>Modernize progressively</strong><p>Decouple and modernize capabilities step by step &mdash; no big-bang transformation.</p></div>
+    </div>
+
+    <!-- OUTCOMES -->
+    <section class="content-section" id="outcomes">
+      <div class="section-heading">
+        <p class="eyebrow">01 &middot; Executive outcomes</p>
+        <h2>Built for the insurance executive agenda</h2>
+        <p class="section-intro">KGA ARIA turns agentic AI into measurable operating outcomes for every leader accountable for growth, profitability and control.</p>
+      </div>
+      <div class="exec-grid">
+        <div class="exec"><span>Underwriting</span><strong>Profitable growth</strong><p>Faster, more consistent decisions within risk appetite.</p></div>
+        <div class="exec"><span>Finance</span><strong>Premium integrity</strong><p>Protected revenue and fewer billing leakages.</p></div>
+        <div class="exec"><span>Claims</span><strong>Loss-ratio protection</strong><p>Quicker resolution with accurate reserves and payouts.</p></div>
+        <div class="exec"><span>Risk &amp; compliance</span><strong>Defensible AI</strong><p>Independent evidence that automation is doing the right thing.</p></div>
+        <div class="exec"><span>Technology</span><strong>Modernize without disruption</strong><p>Intelligence on top of the core &mdash; no rip-and-replace.</p></div>
+      </div>
+    </section>
+
+    <!-- PORTFOLIO -->
+    <section class="content-section" id="portfolio">
+      <div class="section-heading">
+        <p class="eyebrow">02 &middot; Platform portfolio</p>
+        <h2>One platform across the insurance lifecycle</h2>
+        <p class="section-intro">Purpose-built agentic capabilities for every stage of the P&amp;C value chain, extended by production adoption and independent outcome assurance.</p>
+      </div>
+      <div class="portfolio-grid">
+        <article class="product-card">
+          <span class="seq">01</span><span class="tag">Lifecycle</span>
+          <h3>KGA ARIA Policy</h3>
+          <p>Faster, more consistent underwriting decisions across new business, change and renewal.</p>
+          <ul>
+            <li><svg class="ic"><use href="#i-check"/></svg>Intelligent submission triage</li>
+            <li><svg class="ic"><use href="#i-check"/></svg>Evidence-backed recommendations</li>
+            <li><svg class="ic"><use href="#i-check"/></svg>Authority-aware referrals</li>
+          </ul>
+        </article>
+        <article class="product-card">
+          <span class="seq">02</span><span class="tag">Lifecycle</span>
+          <h3>KGA ARIA Billing</h3>
+          <p>Proactive billing operations that protect premium and improve the customer experience.</p>
+          <ul>
+            <li><svg class="ic"><use href="#i-check"/></svg>Delinquency foresight</li>
+            <li><svg class="ic"><use href="#i-check"/></svg>Payment plan intelligence</li>
+            <li><svg class="ic"><use href="#i-check"/></svg>Premium-to-billing integrity</li>
+          </ul>
+        </article>
+        <article class="product-card">
+          <span class="seq">03</span><span class="tag">Lifecycle</span>
+          <h3>KGA ARIA Claims</h3>
+          <p>Multi-agent decisioning that accelerates resolution and protects the loss ratio.</p>
+          <ul>
+            <li><svg class="ic"><use href="#i-check"/></svg>FNOL triage and assignment</li>
+            <li><svg class="ic"><use href="#i-check"/></svg>Coverage, fraud and severity signals</li>
+            <li><svg class="ic"><use href="#i-check"/></svg>Reserve and settlement guidance</li>
+          </ul>
+        </article>
+      </div>
+      <div class="portfolio-row2">
+        <article class="product-card">
+          <span class="tag">Adoption</span>
+          <h3>KGA ARIA Adopt</h3>
+          <p>Governed rollout of agentic AI into production, so operations scale with control.</p>
+        </article>
+        <article class="product-card assure">
+          <span class="tag">Outcome assurance</span>
+          <h3>KGA ARIA Assure</h3>
+          <p>The independent assurance layer that proves every agentic and human decision journey produced the correct business outcome &mdash; across Policy, Billing and Claims.</p>
+          <ul>
+            <li><svg class="ic"><use href="#i-shield"/></svg>Post-decision outcome verification</li>
+            <li><svg class="ic"><use href="#i-shield"/></svg>Examiner-ready evidence</li>
+            <li><svg class="ic"><use href="#i-shield"/></svg>Regulatory alignment</li>
+            <li><svg class="ic"><use href="#i-shield"/></svg>Line-of-business neutral</li>
+          </ul>
+        </article>
+      </div>
+    </section>
+
+    <!-- ASSURE -->
+    <section class="content-section assure-section" id="assure">
+      <div class="section-heading">
+        <p class="eyebrow v">03 &middot; KGA ARIA Assure</p>
+        <h2>Prove every agentic decision delivered the right outcome.</h2>
+        <p class="section-intro">Core platforms record what happened. ARIA Assure verifies that what happened was right &mdash; giving underwriting, finance, claims, compliance and risk leaders independent, defensible evidence that automation is performing as intended.</p>
+      </div>
+      <div class="assure-flow">
+        <div class="flow-step"><span>01</span><strong>Agent recommends</strong><p>Decisions proposed with supporting evidence.</p></div>
+        <div class="flow-step"><span>02</span><strong>Human authorizes</strong><p>Action within configured authority.</p></div>
+        <div class="flow-step"><span>03</span><strong>Core records</strong><p>Transaction lands in the system of record.</p></div>
+        <div class="flow-step"><span>04 &middot; Assure</span><strong>Outcome verified</strong><p>Business result confirmed with evidence.</p></div>
+      </div>
+      <div class="assure-grid">
+        <article class="assure-card"><span class="feature-icon"><svg class="ic"><use href="#i-target"/></svg></span><h3>Outcome verification</h3><p>Exceptions surface before they reach customers or the loss ratio.</p></article>
+        <article class="assure-card"><span class="feature-icon"><svg class="ic"><use href="#i-scale"/></svg></span><h3>Regulatory evidence</h3><p>Defensible, examiner-ready evidence for every assured decision.</p></article>
+        <article class="assure-card"><span class="feature-icon"><svg class="ic"><use href="#i-bolt"/></svg></span><h3>Automation acceleration</h3><p>Expand straight-through processing; reserve human review for the cases that need it.</p></article>
+        <article class="assure-card"><span class="feature-icon"><svg class="ic"><use href="#i-rocket"/></svg></span><h3>Pilot to production</h3><p>The outcome evidence leadership needs to approve agentic AI at scale.</p></article>
+        <article class="assure-card"><span class="feature-icon"><svg class="ic"><use href="#i-network"/></svg></span><h3>Delegated authority oversight</h3><p>Independent assurance across MGAs, program administrators and TPAs.</p></article>
+        <article class="assure-card"><span class="feature-icon"><svg class="ic"><use href="#i-link"/></svg></span><h3>Complements the core</h3><p>Extends existing audit trails and AI investments &mdash; never replaces them.</p></article>
+      </div>
+      <div class="family-row">
+        <div class="family"><span>01</span><strong>Policy assurance</strong><p>Premium and policy-transaction integrity.</p></div>
+        <div class="family"><span>02</span><strong>Billing assurance</strong><p>Invoicing and instalment integrity.</p></div>
+        <div class="family"><span>03</span><strong>Claims assurance</strong><p>Reserve, payment and settlement integrity.</p></div>
+        <div class="family"><span>04</span><strong>Delegated authority</strong><p>Third-party administered business.</p></div>
+      </div>
+      <div class="fit-strip">
+        <div class="fit"><svg class="ic"><use href="#i-pulse"/></svg><div><strong>Live outcomes</strong><p>Operates on production business results, not test scripts.</p></div></div>
+        <div class="fit"><svg class="ic"><use href="#i-layers"/></svg><div><strong>Any line of business</strong><p>Personal, commercial and specialty lines.</p></div></div>
+        <div class="fit"><svg class="ic"><use href="#i-badge"/></svg><div><strong>Built for every buyer</strong><p>Carriers, MGAs, TPAs, software providers and system integrators.</p></div></div>
+      </div>
+    </section>
+
+    <!-- TECHNOLOGY -->
+    <section class="content-section" id="technology">
+      <div class="section-heading">
+        <p class="eyebrow">04 &middot; Technical capabilities</p>
+        <h2>Enterprise-grade by design</h2>
+        <p class="section-intro">Engineered for the security, control and resilience expectations of regulated insurers.</p>
+      </div>
+      <div class="tech-grid">
+        <div class="tech"><span class="feature-icon"><svg class="ic"><use href="#i-cpu"/></svg></span><strong>Multi-agent orchestration</strong><p>Specialist agents coordinated across the insurance lifecycle.</p></div>
+        <div class="tech"><span class="feature-icon"><svg class="ic"><use href="#i-shield"/></svg></span><strong>Governed autonomy</strong><p>Human authority, approval limits and escalation built in.</p></div>
+        <div class="tech"><span class="feature-icon"><svg class="ic"><use href="#i-eye"/></svg></span><strong>Explainable decisions</strong><p>Every recommendation carries its evidence and rationale.</p></div>
+        <div class="tech"><span class="feature-icon"><svg class="ic"><use href="#i-filecheck"/></svg></span><strong>Full provenance</strong><p>Traceable decision records from recommendation to outcome.</p></div>
+        <div class="tech"><span class="feature-icon"><svg class="ic"><use href="#i-network"/></svg></span><strong>Core-platform ready</strong><p>Pre-built adapters for leading P&amp;C core platforms.</p></div>
+        <div class="tech"><span class="feature-icon"><svg class="ic"><use href="#i-lock"/></svg></span><strong>Enterprise security</strong><p>Single sign-on, least-privilege access and tenant isolation.</p></div>
+        <div class="tech"><span class="feature-icon"><svg class="ic"><use href="#i-cloud"/></svg></span><strong>Deploy anywhere</strong><p>Leading public clouds or on-premise, under the insurer's control.</p></div>
+        <div class="tech"><span class="feature-icon"><svg class="ic"><use href="#i-pulse"/></svg></span><strong>Operational resilience</strong><p>Monitoring, alerting and recovery for production operations.</p></div>
+      </div>
+    </section>
+
+    <!-- TRUST -->
+    <section class="content-section" id="trust">
+      <div class="section-heading">
+        <p class="eyebrow">05 &middot; Trust &amp; regulatory readiness</p>
+        <h2>Designed for regulated insurance</h2>
+        <p class="section-intro">KGA ARIA and ARIA Assure support insurers in aligning agentic AI with the governance, model-risk, privacy and operational-resilience frameworks that apply across Canada, the United States and the European Union.</p>
+      </div>
+      <div class="reg-grid">
+        <div class="reg"><span>Canada</span><ul>
+          <li><svg class="ic"><use href="#i-check"/></svg><span><b>OSFI E-23</b> &mdash; Model Risk Management, including AI and machine-learning models</span></li>
+          <li><svg class="ic"><use href="#i-check"/></svg><span><b>OSFI B-10</b> &mdash; Third-Party Risk Management</span></li>
+          <li><svg class="ic"><use href="#i-check"/></svg><span><b>OSFI B-13</b> &mdash; Technology and Cyber Risk Management</span></li>
+          <li><svg class="ic"><use href="#i-check"/></svg><span><b>PIPEDA</b> &mdash; Federal privacy</span></li>
+        </ul></div>
+        <div class="reg"><span>United States</span><ul>
+          <li><svg class="ic"><use href="#i-check"/></svg><span><b>NAIC Model Bulletin</b> &mdash; Use of Artificial Intelligence Systems by Insurers</span></li>
+          <li><svg class="ic"><use href="#i-check"/></svg><span><b>NAIC AI Principles</b> &mdash; Fairness, accountability, transparency and security</span></li>
+          <li><svg class="ic"><use href="#i-check"/></svg><span><b>State insurance departments</b> &mdash; AI governance and unfair-discrimination expectations</span></li>
+        </ul></div>
+        <div class="reg"><span>European Union</span><ul>
+          <li><svg class="ic"><use href="#i-check"/></svg><span><b>EU AI Act</b> &mdash; Risk management, transparency, human oversight and record-keeping</span></li>
+          <li><svg class="ic"><use href="#i-check"/></svg><span><b>DORA</b> &mdash; Digital operational resilience and ICT third-party risk</span></li>
+          <li><svg class="ic"><use href="#i-check"/></svg><span><b>GDPR</b> &mdash; Data protection and automated decision-making</span></li>
+        </ul></div>
+      </div>
+      <div class="fit-strip">
+        <div class="fit"><svg class="ic"><use href="#i-scale"/></svg><div><strong>Evidence on demand</strong><p>Outcome evidence mapped to the obligations it supports, ready for examiners and auditors.</p></div></div>
+        <div class="fit"><svg class="ic"><use href="#i-eye"/></svg><div><strong>Transparency by default</strong><p>Explainable recommendations and traceable decisions for every action.</p></div></div>
+        <div class="fit"><svg class="ic"><use href="#i-lock"/></svg><div><strong>Data stays in control</strong><p>Deployment in the insurer's own environment keeps sensitive data where it belongs.</p></div></div>
+      </div>
+    </section>
+
+    <!-- PARTNERS -->
+    <section class="content-section" id="partners">
+      <div class="section-heading">
+        <p class="eyebrow">06 &middot; Partners &amp; availability</p>
+        <h2>Backed by leading technology partners</h2>
+        <p class="section-intro">KGA ARIA is built and delivered with the world's leading cloud and AI ecosystems, and procured through the channels enterprises already use.</p>
+      </div>
+      <div class="partner-grid">
+        <div class="partner"><span class="pm">MS</span><div><strong>Microsoft Cloud AI Partner</strong><small>Cloud and AI</small></div></div>
+        <div class="partner"><span class="pm">MS</span><div><strong>Microsoft for Startups</strong><small>Startup program</small></div></div>
+        <div class="partner"><span class="pm">AWS</span><div><strong>AWS Activate</strong><small>Cloud</small></div></div>
+        <div class="partner"><span class="pm">G</span><div><strong>Google Advantage Partner</strong><small>Cloud</small></div></div>
+        <div class="partner"><span class="pm">AI</span><div><strong>Claude for Startups</strong><small>Frontier AI</small></div></div>
+        <div class="partner"><span class="pm">NV</span><div><strong>NVIDIA Inception</strong><small>Accelerated computing</small></div></div>
+      </div>
+      <div class="avail-grid">
+        <div class="avail"><svg class="ic"><use href="#i-store"/></svg><div><strong>Available on Microsoft Azure Marketplace</strong><p>Procure through existing Microsoft cloud agreements.</p></div></div>
+        <div class="avail"><svg class="ic"><use href="#i-store"/></svg><div><strong>Available on Google Cloud Marketplace</strong><p>Procure through existing Google Cloud agreements.</p></div></div>
+      </div>
+    </section>
+
+    <!-- ENGAGE -->
+    <section class="content-section" id="engage">
+      <div class="section-heading">
+        <p class="eyebrow">07 &middot; Ways to engage</p>
+        <h2>Start where the value is clearest</h2>
+      </div>
+      <div class="engage">
+        <div><span>01</span><strong>Executive briefing</strong><p>A focused session on priorities and fit.</p></div>
+        <div class="v"><span>02</span><strong>Assure assessment</strong><p>Outcome assurance applied to a defined book of business.</p></div>
+        <div><span>03</span><strong>Pilot</strong><p>A scoped deployment against agreed success criteria.</p></div>
+        <div><span>04</span><strong>Enterprise licence</strong><p>Platform-wide rollout with ongoing support.</p></div>
+      </div>
+    </section>
+
+    <!-- CONTACT -->
+    <section class="content-section" id="contact">
+      <div class="cta">
+        <div>
+          <p class="eyebrow">KGAgentic</p>
+          <h3>See KGA ARIA and ARIA Assure in action.</h3>
+          <p>Book an executive briefing and guided walkthrough of the KGA ARIA platform.</p>
+          <p class="loc"><svg class="ic"><use href="#i-pin"/></svg> Greater Toronto Area, Canada</p>
+        </div>
+        <a class="button primary" href="mailto:info@krishcons.com?subject=KGA%20ARIA%20Executive%20Briefing">Request a briefing <svg class="ic"><use href="#i-external"/></svg></a>
+      </div>
+    </section>
+  </main>
+</div>
+
+<footer>
+  <div class="footer-inner">
+    <div class="brand">
+      <span class="brand-mark"><svg class="ic ic-fill" style="width:15px;height:15px"><use href="#i-spark"/></svg></span>
+      <span class="bt"><strong>KGA ARIA</strong><small>Executive Overview</small></span>
+    </div>
+    <p>KGA ARIA Policy &middot; Billing &middot; Claims &middot; Adopt &middot; Assure</p>
+    <p>&copy; Krishcon Guide Agentic Solutions Inc., operating as KGAgentic &middot; Greater Toronto Area, Canada</p>
+  </div>
+</footer>
+
+</body>
+</html>
