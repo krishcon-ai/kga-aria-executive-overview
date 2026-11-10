@@ -4,19 +4,19 @@
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>KGA ARIA — Executive Overview</title>
-<meta name="description" content="KGA ARIA by KGAgentic: enterprise agentic AI for P&amp;C insurance across Policy, Billing and Claims, with KGA ARIA Assure outcome assurance. Available on Microsoft Azure and Google Cloud Marketplaces. Built in the Greater Toronto Area, Canada.">
+<meta name="description" content="KGA ARIA by KGAgentic: one enterprise agentic AI platform for P&amp;C insurance across Policy, Billing, Claims, Adopt and Assure. Available on Microsoft Azure and Google Cloud Marketplaces. Built in the Greater Toronto Area, Canada.">
 <meta name="robots" content="index, follow">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;600;700;800;900&family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Archivo+Black&family=Montserrat:wght@400;600;700;800;900&family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
 <style>
 :root{
-  --bg:#0f1117; --bg2:#13161f; --bg3:#171b26;
-  --card:rgba(255,255,255,.04); --border:rgba(255,255,255,.09);
-  --text:#f1f5f9; --text-mid:#94a3b8; --text-dim:#64748b;
-  --amber:#c9a84c; --amber-lt:#f5d470; --amber-dim:rgba(201,168,76,.14);
+  --bg:#0a0a0a; --bg2:#121212; --bg3:#181818;
+  --card:rgba(255,255,255,.04); --border:rgba(255,255,255,.14);
+  --text:#ffffff; --text-mid:#d0d0d0; --text-dim:#8c8c8c;
+  --amber:#c9a46a; --amber-lt:#e3c690; --amber-dim:rgba(201,164,106,.12);
   --green-lt:#6ee7b7; --green-dim:rgba(16,185,129,.14);
-  --violet:#a78bfa; --violet-dim:rgba(124,58,237,.16);
+  --violet:#e3c690; --violet-dim:rgba(201,164,106,.14);
   --radius:12px;
   --mono:'Montserrat',system-ui,sans-serif;
   --body:'Inter',system-ui,-apple-system,Segoe UI,Roboto,sans-serif;
@@ -30,9 +30,9 @@ a{color:inherit}
 
 /* ── TOPBAR ── */
 .topbar{position:sticky;top:0;z-index:50;height:60px;display:flex;align-items:center;justify-content:space-between;
-  padding:0 clamp(16px,3vw,48px);background:rgba(15,17,23,.92);backdrop-filter:blur(12px);border-bottom:1px solid var(--border)}
+  padding:0 clamp(16px,3vw,48px);background:rgba(10,10,10,.94);backdrop-filter:blur(12px);border-bottom:1px solid var(--border)}
 .brand{display:flex;align-items:center;gap:11px;text-decoration:none}
-.brand-mark{width:32px;height:32px;display:grid;place-items:center;border-radius:7px;color:#0a1628;
+.brand-mark{width:32px;height:32px;display:grid;place-items:center;border-radius:7px;color:#111111;
   background:linear-gradient(145deg,var(--amber-lt),var(--amber));font-size:15px}
 .brand .bt{display:grid;line-height:1.1}
 .brand strong{font-family:var(--mono);font-size:13px;font-weight:800;letter-spacing:.06em;color:var(--text)}
@@ -73,9 +73,9 @@ main{min-width:0}
 /* ── HERO ── */
 .hero{display:grid;grid-template-columns:minmax(0,1.35fr) minmax(300px,.65fr);align-items:center;gap:54px;
   padding:66px 56px;border-radius:16px;overflow:hidden;
-  background:radial-gradient(ellipse 70% 60% at 78% -5%,rgba(124,58,237,.14),transparent 60%),
-             radial-gradient(ellipse 60% 70% at 10% 110%,rgba(201,168,76,.10),transparent 55%),
-             linear-gradient(140deg,#111623,#0c1220 70%,#131a2b);
+  background:radial-gradient(ellipse 70% 60% at 78% -5%,rgba(201,164,106,0.08),transparent 60%),
+             radial-gradient(ellipse 60% 70% at 10% 110%,rgba(201,164,106,.10),transparent 55%),
+             linear-gradient(140deg,#111111,#0a0a0a 70%,#121212);
   border:1px solid var(--border)}
 .hero h1{font-family:var(--mono);font-size:clamp(34px,4.6vw,54px);font-weight:800;line-height:1.05;letter-spacing:-.02em;margin-bottom:16px}
 .hero-lede{max-width:820px;color:var(--text-mid);font-size:16px;line-height:1.7}
@@ -83,11 +83,11 @@ main{min-width:0}
 .button{min-height:44px;display:inline-flex;align-items:center;justify-content:center;gap:9px;padding:0 20px;border-radius:8px;
   font-family:var(--mono);font-size:11.5px;font-weight:700;letter-spacing:.05em;text-transform:uppercase;text-decoration:none;transition:.2s;cursor:pointer}
 .button .ic{font-size:16px}
-.button.primary{background:var(--amber);color:#0a1628}
+.button.primary{background:var(--amber);color:#111111}
 .button.primary:hover{background:var(--amber-lt)}
 .button.secondary{border:1px solid rgba(255,255,255,.2);color:var(--text)}
 .button.secondary:hover{border-color:var(--amber);color:var(--amber)}
-.button.light{background:var(--text);color:#0a1628}
+.button.light{background:var(--text);color:#111111}
 .button.light:hover{background:#fff}
 .hero-panel{padding-left:30px;border-left:1px solid var(--border)}
 .panel-kicker{font-family:var(--mono);font-size:9px;font-weight:700;letter-spacing:.16em;text-transform:uppercase;color:var(--text-dim);margin-bottom:16px}
@@ -118,7 +118,7 @@ main{min-width:0}
 .check-item span{flex:none;width:21px;height:21px;display:grid;place-items:center;border-radius:50%;color:var(--green-lt);background:var(--green-dim)}
 .check-item span .ic{font-size:12px}
 .check-item p{font-size:13px;line-height:1.5;color:var(--text-mid)}
-.note{display:grid;grid-template-columns:120px 1fr;gap:18px;margin-top:16px;padding:17px 20px;border:1px solid rgba(201,168,76,.3);border-radius:8px;background:rgba(201,168,76,.06)}
+.note{display:grid;grid-template-columns:120px 1fr;gap:18px;margin-top:16px;padding:17px 20px;border:1px solid rgba(201,164,106,.3);border-radius:8px;background:rgba(201,164,106,.06)}
 .note strong{font-family:var(--mono);font-size:11px;font-weight:700;letter-spacing:.03em;color:var(--amber-lt)}
 .note p{color:var(--text-mid);font-size:12px;line-height:1.6}
 
@@ -134,18 +134,18 @@ main{min-width:0}
 .product-card li{display:flex;gap:9px;color:var(--text-mid);font-size:12px;line-height:1.45}
 .product-card li .ic{font-size:13px;color:var(--green-lt);margin-top:2px}
 .portfolio-row2{display:grid;grid-template-columns:1fr 2fr;gap:12px;margin-top:12px}
-.product-card.assure{border-color:rgba(167,139,250,.45);
-  background:radial-gradient(ellipse 80% 90% at 100% 0%,rgba(124,58,237,.18),transparent 60%),var(--bg2)}
+.product-card.assure{border-color:rgba(201,164,106,.45);
+  background:radial-gradient(ellipse 80% 90% at 100% 0%,rgba(201,164,106,0.11),transparent 60%),var(--bg2)}
 .product-card.assure .tag{color:var(--violet);background:var(--violet-dim)}
 .product-card.assure h3{color:#fff}
 .product-card.assure li .ic{color:var(--violet)}
 .product-card.assure ul{grid-template-columns:1fr 1fr}
 
 /* assure spotlight */
-.assure-section{margin-top:84px;padding:56px 40px;border-radius:16px;border:1px solid rgba(167,139,250,.35);
-  background:radial-gradient(ellipse 70% 70% at 90% -10%,rgba(124,58,237,.22),transparent 60%),
-             radial-gradient(ellipse 60% 60% at 0% 110%,rgba(201,168,76,.08),transparent 55%),
-             linear-gradient(140deg,#121628,#0c1120 70%,#141a2e)}
+.assure-section{margin-top:84px;padding:56px 40px;border-radius:16px;border:1px solid rgba(201,164,106,.35);
+  background:radial-gradient(ellipse 70% 70% at 90% -10%,rgba(201,164,106,0.13),transparent 60%),
+             radial-gradient(ellipse 60% 60% at 0% 110%,rgba(201,164,106,.08),transparent 55%),
+             linear-gradient(140deg,#111111,#0a0a0a 70%,#131313)}
 .assure-section.content-section{padding-top:56px}
 .assure-flow{display:grid;grid-template-columns:repeat(4,1fr);gap:0;margin:6px 0 30px;border:1px solid var(--border);border-radius:12px;overflow:hidden}
 .flow-step{padding:20px;background:rgba(255,255,255,.025);border-right:1px solid var(--border)}
@@ -155,12 +155,12 @@ main{min-width:0}
 .flow-step strong{display:block;margin:6px 0 4px;font-family:var(--mono);font-size:13.5px;font-weight:700}
 .flow-step p{color:var(--text-mid);font-size:11.5px;line-height:1.5}
 .assure-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:12px}
-.assure-card{padding:22px;border:1px solid var(--border);border-radius:10px;background:rgba(15,17,23,.55)}
+.assure-card{padding:22px;border:1px solid var(--border);border-radius:10px;background:rgba(18,18,18,.7)}
 .assure-card .feature-icon{color:var(--violet);background:var(--violet-dim)}
 .assure-card h3{font-family:var(--mono);font-size:14.5px;font-weight:700;margin-bottom:7px}
 .assure-card p{color:var(--text-mid);font-size:12.5px;line-height:1.6}
 .family-row{display:grid;grid-template-columns:repeat(4,1fr);gap:12px;margin-top:26px}
-.family{padding:16px 18px;border-radius:10px;border:1px solid rgba(167,139,250,.3);background:rgba(124,58,237,.08)}
+.family{padding:16px 18px;border-radius:10px;border:1px solid rgba(201,164,106,.3);background:rgba(201,164,106,0.05)}
 .family span{font-family:var(--mono);font-size:9px;font-weight:800;letter-spacing:.14em;color:var(--violet)}
 .family strong{display:block;margin:5px 0 3px;font-family:var(--mono);font-size:13px;font-weight:700}
 .family p{color:var(--text-mid);font-size:11.5px;line-height:1.5}
@@ -175,14 +175,14 @@ main{min-width:0}
 .steps li{display:grid;grid-template-columns:40px 1fr;gap:20px;padding:22px 0;border-top:1px solid var(--border)}
 .steps li:last-child{border-bottom:1px solid var(--border)}
 .steps li>span{width:34px;height:34px;display:grid;place-items:center;border-radius:50%;color:var(--amber);
-  border:1px solid rgba(201,168,76,.35);background:var(--amber-dim);font-family:var(--mono);font-size:12px;font-weight:800}
+  border:1px solid rgba(201,164,106,.35);background:var(--amber-dim);font-family:var(--mono);font-size:12px;font-weight:800}
 .steps h3{font-family:var(--mono);font-size:15px;font-weight:700;color:var(--text);margin-bottom:6px}
 .steps p{color:var(--text-mid);font-size:13px;line-height:1.62}
 
 /* feature cards */
 .feature-grid.three{grid-template-columns:repeat(3,1fr)}
 .feature-card{padding:24px;border:1px solid var(--border);border-radius:10px;background:var(--bg2)}
-.feature-card.v{border-color:rgba(167,139,250,.4)}
+.feature-card.v{border-color:rgba(201,164,106,.4)}
 .feature-icon{width:42px;height:42px;display:grid;place-items:center;margin-bottom:18px;border-radius:9px;color:var(--amber);background:var(--amber-dim)}
 .feature-card.v .feature-icon{color:var(--violet);background:var(--violet-dim)}
 .feature-icon .ic{font-size:20px}
@@ -195,7 +195,7 @@ main{min-width:0}
 .workflow-layout{display:grid;grid-template-columns:1.1fr .9fr;gap:44px;margin-top:8px}
 .workflow-step{display:grid;grid-template-columns:32px 1fr;gap:14px;padding:16px 0;border-top:1px solid var(--border)}
 .workflow-step:first-child{border-top:0}
-.workflow-step>span{width:24px;height:24px;display:grid;place-items:center;border-radius:5px;color:#0a1628;background:var(--amber);font-family:var(--mono);font-size:11px;font-weight:800}
+.workflow-step>span{width:24px;height:24px;display:grid;place-items:center;border-radius:5px;color:#111111;background:var(--amber);font-family:var(--mono);font-size:11px;font-weight:800}
 .workflow-step.v>span{background:var(--violet)}
 .workflow-step h3{font-family:var(--mono);font-size:13.5px;font-weight:700;margin-bottom:5px}
 .workflow-step p{color:var(--text-mid);font-size:12px;line-height:1.55}
@@ -218,7 +218,7 @@ main{min-width:0}
 
 /* launch card */
 .launch-card{display:grid;grid-template-columns:84px 1fr;overflow:hidden;border:1px solid var(--border);border-radius:12px;background:var(--bg2)}
-.launch-icon{display:grid;place-items:center;color:#0a1628;background:linear-gradient(160deg,var(--amber-lt),var(--amber))}
+.launch-icon{display:grid;place-items:center;color:#111111;background:linear-gradient(160deg,var(--amber-lt),var(--amber))}
 .launch-icon .ic{font-size:26px}
 .launch-items{padding:14px 26px}
 .launch-items label{display:flex;gap:12px;align-items:center;padding:11px 0;border-bottom:1px solid var(--border)}
@@ -229,14 +229,14 @@ main{min-width:0}
 
 /* support */
 .support-card{display:flex;align-items:center;justify-content:space-between;gap:36px;padding:34px;border-radius:12px;
-  background:linear-gradient(110deg,#121826,#0c1322);border:1px solid var(--border)}
+  background:linear-gradient(110deg,#121212,#0b0b0b);border:1px solid var(--border)}
 .support-card>div{max-width:640px}
 .support-card .feature-icon{margin-bottom:16px;background:var(--amber-dim)}
 .support-card h3{font-family:var(--mono);font-size:20px;font-weight:800;margin-bottom:8px}
 .support-card p{color:var(--text-mid);font-size:12.5px;line-height:1.65}
 
 /* footer */
-footer{border-top:1px solid var(--border);background:#0a0d14;padding:30px clamp(16px,3vw,48px)}
+footer{border-top:1px solid var(--border);background:#050505;padding:30px clamp(16px,3vw,48px)}
 .footer-inner{max-width:none;margin:0;display:grid;grid-template-columns:1fr auto auto;align-items:center;gap:40px}
 footer .brand strong{color:var(--text)}
 footer p{color:var(--text-dim);font-size:11px;line-height:1.7}
@@ -303,7 +303,7 @@ footer p{color:var(--text-dim);font-size:11px;line-height:1.7}
 .exec span{font-family:var(--mono);font-size:9px;font-weight:800;letter-spacing:.16em;text-transform:uppercase;color:var(--amber)}
 .exec strong{display:block;margin:7px 0 6px;font-family:var(--mono);font-size:13.5px;font-weight:700}
 .exec p{color:var(--text-mid);font-size:12px;line-height:1.55}
-.avail{display:flex;align-items:center;gap:16px;margin-top:14px;padding:20px 22px;border:1px solid rgba(201,168,76,.35);border-radius:10px;background:var(--amber-dim)}
+.avail{display:flex;align-items:center;gap:16px;margin-top:14px;padding:20px 22px;border:1px solid rgba(201,164,106,.35);border-radius:10px;background:var(--amber-dim)}
 .avail .ic{font-size:22px;color:var(--amber)}
 .avail strong{font-family:var(--mono);font-size:14px;font-weight:700}
 .avail p{color:var(--text-mid);font-size:12.5px}
@@ -330,11 +330,23 @@ footer p{color:var(--text-dim);font-size:11px;line-height:1.7}
 .loc{display:inline-flex;align-items:center;gap:8px;margin-top:22px;color:var(--text-mid);font-size:12.5px}
 .loc .ic{color:var(--amber);font-size:15px}
 .cta{display:flex;align-items:center;justify-content:space-between;gap:36px;padding:40px;border-radius:14px;
-  background:radial-gradient(ellipse 60% 90% at 100% 0%,rgba(124,58,237,.18),transparent 60%),linear-gradient(110deg,#121826,#0c1322);border:1px solid var(--border)}
+  background:radial-gradient(ellipse 60% 90% at 100% 0%,rgba(201,164,106,0.11),transparent 60%),linear-gradient(110deg,#121212,#0b0b0b);border:1px solid var(--border)}
 .cta h3{font-family:var(--mono);font-size:24px;font-weight:800;margin-bottom:8px}
 .cta p{color:var(--text-mid);font-size:13.5px;line-height:1.65;max-width:620px}
 @media(max-width:1100px){.tech-grid{grid-template-columns:1fr 1fr}.partner-grid{grid-template-columns:1fr 1fr}}
 @media(max-width:640px){.tech-grid,.partner-grid{grid-template-columns:1fr}.cta{flex-direction:column;align-items:flex-start;padding:28px 22px}.cta .button{width:100%}}
+
+/* ── krishcons.com theme ── */
+.hero h1,.section-heading h2,.cta h3{font-family:'Archivo Black','Montserrat',system-ui,sans-serif;font-weight:400;letter-spacing:0}
+.button{border-radius:3px;font-family:'Archivo Black','Montserrat',sans-serif;font-weight:400;letter-spacing:.01em;text-transform:none}
+.button.secondary{border-color:rgba(255,255,255,.75);background:transparent}
+.product-card,.tech,.pillar,.reg,.partner,.assure-card{border-radius:6px;border-top:2px solid var(--amber)}
+.product-card .tag{border-radius:3px;background:transparent;border:1px solid rgba(201,164,106,.5);color:var(--amber)}
+.product-card.assure .tag{background:transparent}
+.eyebrow{color:var(--amber)}
+.hero,.assure-section,.cta{border-radius:8px}
+.hero h1{font-size:clamp(30px,3.9vw,46px);line-height:1.08}
+.section-heading h2{font-size:clamp(22px,2.6vw,32px)}
 </style>
 </head>
 <body>
@@ -384,11 +396,11 @@ footer p{color:var(--text-dim);font-size:11px;line-height:1.7}
     <nav>
       <a href="#overview"><span>00</span>Overview</a>
       <a href="#outcomes"><span>01</span>Executive outcomes</a>
-      <a href="#portfolio"><span>02</span>Platform portfolio</a>
+      <a href="#portfolio"><span>02</span>Enterprise platform</a>
       <a href="#assure" class="hl"><span>03</span>KGA ARIA Assure</a>
       <a href="#technology"><span>04</span>Technical capabilities</a>
       <a href="#trust"><span>05</span>Trust &amp; regulatory readiness</a>
-      <a href="#partners"><span>06</span>Partners &amp; availability</a>
+      <a href="#partners"><span>06</span>Ecosystem &amp; availability</a>
       <a href="#engage"><span>07</span>Ways to engage</a>
     </nav>
     <div class="nav-help">
@@ -403,7 +415,7 @@ footer p{color:var(--text-dim);font-size:11px;line-height:1.7}
       <div>
         <p class="eyebrow">KGA ARIA&trade; &middot; Agentic Runtime Intelligence for Insurance Automation</p>
         <h1>Enterprise agentic AI for P&amp;C insurance. Assured outcomes.</h1>
-        <p class="hero-lede">KGA ARIA brings governed, multi-agent intelligence to Policy, Billing and Claims operations &mdash; alongside the core systems insurers already run. KGA ARIA Assure independently verifies that every agentic and human decision delivers the right business outcome.</p>
+        <p class="hero-lede">One enterprise platform to operate, adopt and assure agentic AI across P&amp;C insurance. KGA ARIA orchestrates Policy, Billing and Claims operations alongside the core systems insurers already run, modernizes selected legacy capabilities step by step, and independently verifies that agentic and human decisions deliver the right business outcome, with traceable evidence.</p>
         <div class="hero-actions">
           <a class="button primary" href="#assure">Explore ARIA Assure <svg class="ic"><use href="#i-arrow"/></svg></a>
           <a class="button secondary" href="#contact">Request a briefing</a>
@@ -411,7 +423,7 @@ footer p{color:var(--text-dim);font-size:11px;line-height:1.7}
         <p class="loc"><svg class="ic"><use href="#i-pin"/></svg> Krishcon Guide Agentic Solutions Inc. (KGAgentic) &middot; Greater Toronto Area, Canada</p>
       </div>
       <div class="hero-panel">
-        <p class="panel-kicker">The KGA ARIA portfolio</p>
+        <p class="panel-kicker">One enterprise platform</p>
         <div class="path-row"><span>01</span><div><strong>KGA ARIA Policy</strong><small>Underwriting and policy lifecycle</small></div><svg class="ic"><use href="#i-check"/></svg></div>
         <div class="path-row"><span>02</span><div><strong>KGA ARIA Billing</strong><small>Billing, collections and servicing</small></div><svg class="ic"><use href="#i-check"/></svg></div>
         <div class="path-row"><span>03</span><div><strong>KGA ARIA Claims</strong><small>FNOL through settlement</small></div><svg class="ic"><use href="#i-check"/></svg></div>
@@ -421,10 +433,10 @@ footer p{color:var(--text-dim);font-size:11px;line-height:1.7}
     </section>
 
     <div class="pillars">
-      <div class="pillar"><strong>Improve the core you have</strong><p>Automate and orchestrate across Policy, Billing and Claims without replacing the core platform.</p></div>
+      <div class="pillar"><strong>Improve the core you have</strong><p>Automate and orchestrate across Policy, Billing and Claims without requiring a core replacement.</p></div>
       <div class="pillar"><strong>Turn context into action</strong><p>Contextual intelligence and decision support from existing data and systems.</p></div>
       <div class="pillar"><strong>Insurance-grade control</strong><p>Human authority, configurable limits, full provenance and auditability.</p></div>
-      <div class="pillar"><strong>Modernize progressively</strong><p>Decouple and modernize capabilities step by step &mdash; no big-bang transformation.</p></div>
+      <div class="pillar"><strong>Modernize progressively</strong><p>Strangler-fig modernization of selected capabilities, one at a time, with the insurer deciding what stays in the core.</p></div>
     </div>
 
     <!-- OUTCOMES -->
@@ -446,15 +458,15 @@ footer p{color:var(--text-dim);font-size:11px;line-height:1.7}
     <!-- PORTFOLIO -->
     <section class="content-section" id="portfolio">
       <div class="section-heading">
-        <p class="eyebrow">02 &middot; Platform portfolio</p>
-        <h2>One platform across the insurance lifecycle</h2>
-        <p class="section-intro">Purpose-built agentic capabilities for every stage of the P&amp;C value chain, extended by production adoption and independent outcome assurance.</p>
+        <p class="eyebrow">02 &middot; Enterprise platform</p>
+        <h2>One enterprise platform across the insurance lifecycle</h2>
+        <p class="section-intro">Five enterprise offerings, deployable independently or together on one governed foundation: operate the insurance lifecycle, adopt agentic AI at scale, and assure outcomes.</p>
       </div>
       <div class="portfolio-grid">
         <article class="product-card">
-          <span class="seq">01</span><span class="tag">Lifecycle</span>
+          <span class="seq">01</span><span class="tag">Operate</span>
           <h3>KGA ARIA Policy</h3>
-          <p>Faster, more consistent underwriting decisions across new business, change and renewal.</p>
+          <p>Orchestrates underwriting work across new business, change and renewal, with faster, more consistent decisions.</p>
           <ul>
             <li><svg class="ic"><use href="#i-check"/></svg>Intelligent submission triage</li>
             <li><svg class="ic"><use href="#i-check"/></svg>Evidence-backed recommendations</li>
@@ -462,9 +474,9 @@ footer p{color:var(--text-dim);font-size:11px;line-height:1.7}
           </ul>
         </article>
         <article class="product-card">
-          <span class="seq">02</span><span class="tag">Lifecycle</span>
+          <span class="seq">02</span><span class="tag">Operate</span>
           <h3>KGA ARIA Billing</h3>
-          <p>Proactive billing operations that protect premium and improve the customer experience.</p>
+          <p>Orchestrates billing and collections work to protect premium and improve the customer experience.</p>
           <ul>
             <li><svg class="ic"><use href="#i-check"/></svg>Delinquency foresight</li>
             <li><svg class="ic"><use href="#i-check"/></svg>Payment plan intelligence</li>
@@ -472,9 +484,9 @@ footer p{color:var(--text-dim);font-size:11px;line-height:1.7}
           </ul>
         </article>
         <article class="product-card">
-          <span class="seq">03</span><span class="tag">Lifecycle</span>
+          <span class="seq">03</span><span class="tag">Operate</span>
           <h3>KGA ARIA Claims</h3>
-          <p>Multi-agent decisioning that accelerates resolution and protects the loss ratio.</p>
+          <p>Orchestrates claims work from FNOL to settlement, accelerating resolution and protecting the loss ratio.</p>
           <ul>
             <li><svg class="ic"><use href="#i-check"/></svg>FNOL triage and assignment</li>
             <li><svg class="ic"><use href="#i-check"/></svg>Coverage, fraud and severity signals</li>
@@ -484,14 +496,19 @@ footer p{color:var(--text-dim);font-size:11px;line-height:1.7}
       </div>
       <div class="portfolio-row2">
         <article class="product-card">
-          <span class="tag">Adoption</span>
+          <span class="tag">Adopt</span>
           <h3>KGA ARIA Adopt</h3>
-          <p>Governed rollout of agentic AI into production, so operations scale with control.</p>
+          <p>Enterprise rollout of agentic AI from pilot into production, so operations scale with control.</p>
+          <ul>
+            <li><svg class="ic"><use href="#i-check"/></svg>Readiness and use-case prioritization</li>
+            <li><svg class="ic"><use href="#i-check"/></svg>Decision owners and authority design</li>
+            <li><svg class="ic"><use href="#i-check"/></svg>Pilot-to-production controls</li>
+          </ul>
         </article>
         <article class="product-card assure">
-          <span class="tag">Outcome assurance</span>
+          <span class="tag">Assure</span>
           <h3>KGA ARIA Assure</h3>
-          <p>The independent assurance layer that proves every agentic and human decision journey produced the correct business outcome &mdash; across Policy, Billing and Claims.</p>
+          <p>The independent assurance layer that verifies agentic and human decisions produced the correct business outcome &mdash; across Policy, Billing and Claims.</p>
           <ul>
             <li><svg class="ic"><use href="#i-shield"/></svg>Post-decision outcome verification</li>
             <li><svg class="ic"><use href="#i-shield"/></svg>Examiner-ready evidence</li>
@@ -500,27 +517,32 @@ footer p{color:var(--text-dim);font-size:11px;line-height:1.7}
           </ul>
         </article>
       </div>
+      <div class="fit-strip">
+        <div class="fit"><svg class="ic"><use href="#i-layers"/></svg><div><strong>Strangler-fig modernization</strong><p>Adapter-based integration lets selected capabilities move off legacy systems one at a time.</p></div></div>
+        <div class="fit"><svg class="ic"><use href="#i-network"/></svg><div><strong>Core-system agnostic</strong><p>Works beside any P&amp;C core platform, starting with Guidewire.</p></div></div>
+        <div class="fit"><svg class="ic"><use href="#i-cpu"/></svg><div><strong>LLM-agnostic</strong><p>Choose and change AI models without re-platforming.</p></div></div>
+      </div>
     </section>
 
     <!-- ASSURE -->
     <section class="content-section assure-section" id="assure">
       <div class="section-heading">
         <p class="eyebrow v">03 &middot; KGA ARIA Assure</p>
-        <h2>Prove every agentic decision delivered the right outcome.</h2>
-        <p class="section-intro">Core platforms record what happened. ARIA Assure verifies that what happened was right &mdash; giving underwriting, finance, claims, compliance and risk leaders independent, defensible evidence that automation is performing as intended.</p>
+        <h2>Independent evidence that insurance outcomes match approved intent.</h2>
+        <p class="section-intro">Core platforms record what happened. ARIA Assure verifies that what happened was right, comparing executed outcomes with approved expectations, authority and evidence. Missing or conflicting evidence never passes as verified.</p>
       </div>
       <div class="assure-flow">
-        <div class="flow-step"><span>01</span><strong>Agent recommends</strong><p>Decisions proposed with supporting evidence.</p></div>
-        <div class="flow-step"><span>02</span><strong>Human authorizes</strong><p>Action within configured authority.</p></div>
+        <div class="flow-step"><span>01</span><strong>Decision proposed</strong><p>By an agent or a person, with supporting evidence.</p></div>
+        <div class="flow-step"><span>02</span><strong>Authorized</strong><p>Action within configured authority.</p></div>
         <div class="flow-step"><span>03</span><strong>Core records</strong><p>Transaction lands in the system of record.</p></div>
-        <div class="flow-step"><span>04 &middot; Assure</span><strong>Outcome verified</strong><p>Business result confirmed with evidence.</p></div>
+        <div class="flow-step"><span>04 &middot; Assure</span><strong>Outcome verified</strong><p>Result checked with evidence; corrections re-verified.</p></div>
       </div>
       <div class="assure-grid">
-        <article class="assure-card"><span class="feature-icon"><svg class="ic"><use href="#i-target"/></svg></span><h3>Outcome verification</h3><p>Exceptions surface before they reach customers or the loss ratio.</p></article>
+        <article class="assure-card"><span class="feature-icon"><svg class="ic"><use href="#i-target"/></svg></span><h3>Outcome verification</h3><p>Discrepancies surface early, with evidence, and carrier corrections are verified.</p></article>
         <article class="assure-card"><span class="feature-icon"><svg class="ic"><use href="#i-scale"/></svg></span><h3>Regulatory evidence</h3><p>Defensible, examiner-ready evidence for every assured decision.</p></article>
         <article class="assure-card"><span class="feature-icon"><svg class="ic"><use href="#i-bolt"/></svg></span><h3>Automation acceleration</h3><p>Expand straight-through processing; reserve human review for the cases that need it.</p></article>
         <article class="assure-card"><span class="feature-icon"><svg class="ic"><use href="#i-rocket"/></svg></span><h3>Pilot to production</h3><p>The outcome evidence leadership needs to approve agentic AI at scale.</p></article>
-        <article class="assure-card"><span class="feature-icon"><svg class="ic"><use href="#i-network"/></svg></span><h3>Delegated authority oversight</h3><p>Independent assurance across MGAs, program administrators and TPAs.</p></article>
+        <article class="assure-card"><span class="feature-icon"><svg class="ic"><use href="#i-network"/></svg></span><h3>Delegated authority oversight</h3><p>Independent assurance across MGAs and TPAs.</p></article>
         <article class="assure-card"><span class="feature-icon"><svg class="ic"><use href="#i-link"/></svg></span><h3>Complements the core</h3><p>Extends existing audit trails and AI investments &mdash; never replaces them.</p></article>
       </div>
       <div class="family-row">
@@ -531,8 +553,8 @@ footer p{color:var(--text-dim);font-size:11px;line-height:1.7}
       </div>
       <div class="fit-strip">
         <div class="fit"><svg class="ic"><use href="#i-pulse"/></svg><div><strong>Live outcomes</strong><p>Operates on production business results, not test scripts.</p></div></div>
-        <div class="fit"><svg class="ic"><use href="#i-layers"/></svg><div><strong>Any line of business</strong><p>Personal, commercial and specialty lines.</p></div></div>
-        <div class="fit"><svg class="ic"><use href="#i-badge"/></svg><div><strong>Built for every buyer</strong><p>Carriers, MGAs, TPAs, software providers and system integrators.</p></div></div>
+        <div class="fit"><svg class="ic"><use href="#i-layers"/></svg><div><strong>Line-of-business neutral</strong><p>Personal, commercial and specialty lines, configured per client.</p></div></div>
+        <div class="fit"><svg class="ic"><use href="#i-badge"/></svg><div><strong>Built for carriers and MGAs</strong><p>Delivered directly and with software and system-integrator partners.</p></div></div>
       </div>
     </section>
 
@@ -548,7 +570,7 @@ footer p{color:var(--text-dim);font-size:11px;line-height:1.7}
         <div class="tech"><span class="feature-icon"><svg class="ic"><use href="#i-shield"/></svg></span><strong>Governed autonomy</strong><p>Human authority, approval limits and escalation built in.</p></div>
         <div class="tech"><span class="feature-icon"><svg class="ic"><use href="#i-eye"/></svg></span><strong>Explainable decisions</strong><p>Every recommendation carries its evidence and rationale.</p></div>
         <div class="tech"><span class="feature-icon"><svg class="ic"><use href="#i-filecheck"/></svg></span><strong>Full provenance</strong><p>Traceable decision records from recommendation to outcome.</p></div>
-        <div class="tech"><span class="feature-icon"><svg class="ic"><use href="#i-network"/></svg></span><strong>Core-platform ready</strong><p>Pre-built adapters for leading P&amp;C core platforms.</p></div>
+        <div class="tech"><span class="feature-icon"><svg class="ic"><use href="#i-network"/></svg></span><strong>Core-platform ready</strong><p>Adapter-based integration with leading P&amp;C core platforms, Guidewire first.</p></div>
         <div class="tech"><span class="feature-icon"><svg class="ic"><use href="#i-lock"/></svg></span><strong>Enterprise security</strong><p>Single sign-on, least-privilege access and tenant isolation.</p></div>
         <div class="tech"><span class="feature-icon"><svg class="ic"><use href="#i-cloud"/></svg></span><strong>Deploy anywhere</strong><p>Leading public clouds or on-premise, under the insurer's control.</p></div>
         <div class="tech"><span class="feature-icon"><svg class="ic"><use href="#i-pulse"/></svg></span><strong>Operational resilience</strong><p>Monitoring, alerting and recovery for production operations.</p></div>
@@ -560,7 +582,7 @@ footer p{color:var(--text-dim);font-size:11px;line-height:1.7}
       <div class="section-heading">
         <p class="eyebrow">05 &middot; Trust &amp; regulatory readiness</p>
         <h2>Designed for regulated insurance</h2>
-        <p class="section-intro">KGA ARIA and ARIA Assure support insurers in aligning agentic AI with the governance, model-risk, privacy and operational-resilience frameworks that apply across Canada, the United States and the European Union.</p>
+        <p class="section-intro">KGA ARIA and ARIA Assure support insurers in aligning agentic AI with the governance, model-risk, privacy and operational-resilience frameworks that apply across Canada, the United States and the European Union. Jurisdiction coverage is configured per deployment.</p>
       </div>
       <div class="reg-grid">
         <div class="reg"><span>Canada</span><ul>
@@ -590,8 +612,8 @@ footer p{color:var(--text-dim);font-size:11px;line-height:1.7}
     <!-- PARTNERS -->
     <section class="content-section" id="partners">
       <div class="section-heading">
-        <p class="eyebrow">06 &middot; Partners &amp; availability</p>
-        <h2>Backed by leading technology partners</h2>
+        <p class="eyebrow">06 &middot; Ecosystem &amp; availability</p>
+        <h2>Technology ecosystem and startup programs</h2>
         <p class="section-intro">KGA ARIA is built and delivered with the world's leading cloud and AI ecosystems, and procured through the channels enterprises already use.</p>
       </div>
       <div class="partner-grid">
@@ -618,7 +640,7 @@ footer p{color:var(--text-dim);font-size:11px;line-height:1.7}
         <div><span>01</span><strong>Executive briefing</strong><p>A focused session on priorities and fit.</p></div>
         <div class="v"><span>02</span><strong>Assure assessment</strong><p>Outcome assurance applied to a defined book of business.</p></div>
         <div><span>03</span><strong>Pilot</strong><p>A scoped deployment against agreed success criteria.</p></div>
-        <div><span>04</span><strong>Enterprise licence</strong><p>Platform-wide rollout with ongoing support.</p></div>
+        <div><span>04</span><strong>Enterprise licence</strong><p>Platform licence, implementation and annual maintenance.</p></div>
       </div>
     </section>
 
@@ -627,7 +649,7 @@ footer p{color:var(--text-dim);font-size:11px;line-height:1.7}
       <div class="cta">
         <div>
           <p class="eyebrow">KGAgentic</p>
-          <h3>See KGA ARIA and ARIA Assure in action.</h3>
+          <h3>See the KGA ARIA platform in action.</h3>
           <p>Book an executive briefing and guided walkthrough of the KGA ARIA platform.</p>
           <p class="loc"><svg class="ic"><use href="#i-pin"/></svg> Greater Toronto Area, Canada</p>
         </div>
